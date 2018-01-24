@@ -68,8 +68,8 @@ bot.on('message', message => {
     }
     
     if (message.content === "nique ta mère"){
-        message.reply("Perso j'ai déjà fait la tienne !");
-        console.log('Tu es moche !')
+        message.reply("Merci de ne pas insulte, <@292263751372242944> va vous mute voir ban !");
+        console.log('Insulte1')
     }
     
     if (!message.content.startsWith(prefix)) return;
