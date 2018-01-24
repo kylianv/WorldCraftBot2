@@ -35,8 +35,8 @@ bot.on('message', message => {
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#D9F200')
-        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !")
-        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- Insultez le, il vous instule !")
+        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !")
+        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- Insultez le, il vous instule !\n #grosvent : Il se fout de vous :wink: !")
         .setFooter("Cordialement, WorldCraftBot")
         message.channel.send(help_embed);
         console.log("Commande Help demandée !");
@@ -88,6 +88,23 @@ bot.on('message', message => {
             .push({ story_value: value, story_author: author}).write()
         
         break;
+    }
+    
+    if (message.content === prefix + "paypal"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("Voici le lien du paypal : https://www.paypal.me/worldcraftofficiel", 'Le lien peut changer à tout moment !',true)
+        .setFooter("Fait par Piikaa et Corentin !")
+        message.channel.sendEmbed(help_embed);
+        console.log('pong')
+    }
+    
+    if (message.content === prefix + "maj"){
+    var help_embed = new Discord.RichEmbed()
+        .setColor('#25c059')
+        .addField("**__Nouveautés récentes__**","[+slap] : Permet de donner une claque aux autres ! (BETA)\n[+youtube] : Affiche la chaine Youtube de Oxydaz Youtube.\n[+hug} : Permet de faire un calin aux autres ! (BETA)")
+        message.channel.sendEmbed(help_embed);
+        console.log('pingpong');
     }
 
     if (message.content === prefix + "youtube"){
