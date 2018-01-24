@@ -36,7 +36,7 @@ bot.on('message', message => {
         var help_embed = new Discord.RichEmbed()
         .setColor('#D9F200')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !")
-        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !")
+        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- Insultez le, il vous instule !")
         .setFooter("Cordialement, WorldCraftBot")
         message.channel.send(help_embed);
         console.log("Commande Help demandée !");
