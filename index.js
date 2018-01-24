@@ -53,6 +53,11 @@ bot.on('message', message => {
         message.reply("Euh, tu test quoi là ?");
         console.log('Test !')
     }
+        
+    if (message.content === "test"){
+        message.reply("Euh, tu test quoi là ?");
+        console.log('Test !')
+    }
     
     if (!message.content.startsWith(prefix)) return;
     var args = message.content.substring(prefix.length).split(" ");
