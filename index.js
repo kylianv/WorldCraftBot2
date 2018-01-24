@@ -32,11 +32,26 @@ bot.on('message', message => {
 
     if ( message.author.id === '292263751372242944' ||  message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id ===  '205752580251451392' || message.author.id === '275283236169711616'|| message.author.id === '344061192903327744'){
 
-    if(message.author.bot)return;    
+    if(message.author.bot)return;
+        
+    if (message.content === prefix + "help"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#D9F200')
+        .addField("Commandes du bot !", " - $help : Affiche les commandes du bot !")
+        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !")
+        .setFooter("Cordialement, WorldCraftBot")
+        message.channel.send(help_embed);
+        console.log("Commande Help demandée !");
+    }
 
     if (message.content === "ping"){
         message.reply("pong");
         console.log('ping pong')
+    }
+        
+    if (message.content === "Test"){
+        message.reply("Euh, tu test quoi là ?");
+        console.log('Test !')
     }
     
     if (!message.content.startsWith(prefix)) return;
@@ -55,16 +70,6 @@ bot.on('message', message => {
             .push({ story_value: value, story_author: author}).write()
         
         break;
-    }
-
-    if (message.content === prefix + "help"){
-        var help_embed = new Discord.RichEmbed()
-        .setColor('#D9F200')
-        .addField("Commandes du bot !", " - $help : Affiche les commandes du bot !")
-        .addField("Commandes divers !", " - ping : Le bot répond pong !")
-        .setFooter("Cordialement, WorldCraftBot")
-        message.channel.send(help_embed);
-        console.log("Commande Help demandée !");
     }
 
     if (message.content === prefix + "youtube"){
