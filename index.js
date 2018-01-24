@@ -32,20 +32,7 @@ bot.on('message', message => {
 
     if ( message.author.id === '292263751372242944' ||  message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id ===  '205752580251451392' || message.author.id === '275283236169711616'|| message.author.id === '344061192903327744'){
 
-    if(message.author.bot)return;
-
-    if(!db.get("xp").find({user: msgauthor}).value()){
-        db.get("xp").push({user: msgauthor, xp: 1}).write();
-    }else{
-        var userxpdb = db.get("xp").filter({user: msgauthor}).find('xp').value();
-        console.log(userxpdb)
-        var userxp = Object.values(userxpdb)
-        console.log(userxp);
-        console.log(`Nombre d'xp : ${userxp[1]}`)
-
-        db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
-    }
-    
+    if(message.author.bot)return;    
 
     if (message.content === "ping"){
         message.reply("pong");
