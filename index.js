@@ -18,19 +18,17 @@ app.listen(app.get('port'), function(){
 db.defaults({ histoires: [], xp: []}).write()
 
 var bot = new Discord.Client();
-var prefix = ("$");
+var prefix = ("wc!");
 var randnum = 0;
 
 bot.on('ready', () => {
-    bot.user.setPresence({game: { name: '[$help] Bot Officiel de WorldCraft', type: 0}})
+    bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
     console.log("Bot Ready !");
 });
 
 bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
-
-    if ( message.author.id === '292263751372242944' ||  message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id ===  '205752580251451392' || message.author.id === '275283236169711616'|| message.author.id === '344061192903327744'){
 
     if(message.author.bot)return;
         
@@ -161,7 +159,7 @@ bot.on('message', message => {
         message.channel.send({embed: xp_embed});
     }
 
-}});
+});
 
 function random(min, max) {
     min = Math.ceil(0);
