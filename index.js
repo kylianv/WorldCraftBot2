@@ -76,7 +76,7 @@ bot.on('message', message => {
         .addField("Commandes du bot !", " - $help : Affiche les commandes du bot !")
         .addField("Commandes divers !", " - ping : Le bot répond pong !")
         .setFooter("Cordialement, WorldCraftBot")
-        message.channel.sendEmbed(help_embed);
+        message.channel.send(help_embed);
         console.log("Commande Help demandée !");
     }
 
