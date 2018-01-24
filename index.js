@@ -5,6 +5,14 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
+
+//DEBUT PARAGRAPHE HEROKU
+app.set('port', (process.env.PORT || 5000))
+
+app.listen(app.get('port'), function(){
+    console.log(`bot en fonctionnement sur le port ${app.get('port')}`)
+})
+
 db.defaults({ histoires: [], xp: []}).write()
 
 var bot = new Discord.Client();
@@ -16,11 +24,11 @@ bot.on('ready', () => {
     console.log("Bot Ready !");
 });
 
-bot.login('Mzk2NDUyMTIzMDAyMjczNzky.DShoWA.CoGNsqQIl1mfuaT6TcPT-zchkRw');
+bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
 
-    var msgauthor = message.author.id;
+    if ( message.author.id === '292263751372242944' ||  message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id ===  '205752580251451392' || message.author.id === '275283236169711616'|| message.author.id === '344061192903327744'){
 
     if(message.author.bot)return;
 
@@ -149,7 +157,7 @@ bot.on('message', message => {
         message.channel.send({embed: xp_embed});
     }
 
-});
+}});
 
 function random(min, max) {
     min = Math.ceil(0);
