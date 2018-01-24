@@ -46,6 +46,11 @@ bot.on('message', message => {
         message.reply("pong");
         console.log('ping pong')
     }
+    
+        if (message.content === "#grosvent"){
+        message.reply("Ouais c'est le cas de la dire !");
+        console.log('Gros vent')
+    }
         
     if (message.content === "Test"){
         message.reply("Euh, tu test quoi là ?");
@@ -59,7 +64,7 @@ bot.on('message', message => {
 
     if (message.content === "t moche"){
         message.reply("Euh, tu t'es vu toi ?");
-        console.log('Test !')
+        console.log('Tu es moche !')
     }
     
     if (!message.content.startsWith(prefix)) return;
