@@ -72,6 +72,11 @@ bot.on('message', message => {
         console.log('Insulte1')
     }
     
+    if (message.delete === "tg"){
+        message.delete(":x: Tu n'as pas le droit d'insulter !")
+        console.log('Insulte dise : Supprimer')
+    }
+    
     if (!message.content.startsWith(prefix)) return;
     var args = message.content.substring(prefix.length).split(" ");
 
