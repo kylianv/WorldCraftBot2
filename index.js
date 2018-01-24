@@ -67,7 +67,7 @@ bot.on('message', message => {
         console.log('Tu es moche !')
     }
     
-    if (message.content === "nique ta mère){
+    if (message.content === "nique ta mère"){
         message.reply("Perso j'ai déjà fait la tienne !");
         console.log('Tu es moche !')
     }
