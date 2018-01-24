@@ -90,6 +90,14 @@ bot.on('message', message => {
         break;
     }
     
+    if (message.content === prefix + "event"){
+    var help_embed = new Discord.RichEmbed()
+        .setColor('#25c059')
+        .addField("**__Event Programmés__**","*Bonjour, aucun event programmé pour le moment !*")
+        message.channel.sendEmbed(help_embed);
+        console.log('pingpong');
+    }
+    
     if (message.content === prefix + "paypal"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
