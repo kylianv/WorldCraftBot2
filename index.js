@@ -37,7 +37,7 @@ bot.on('message', message => {
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#D9F200')
-        .addField("Commandes du bot !", " - $help : Affiche les commandes du bot !")
+        .addField("Commandes du bot !", " - $help : Affiche les commandes du bot !\n- $")
         .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !")
         .setFooter("Cordialement, WorldCraftBot")
         message.channel.send(help_embed);
@@ -56,6 +56,11 @@ bot.on('message', message => {
         
     if (message.content === "test"){
         message.reply("Euh, tu test quoi là ?");
+        console.log('Test !')
+    }
+
+    if (message.content === "t moche"){
+        message.reply("Euh, tu t'es vu toi ?");
         console.log('Test !')
     }
     
