@@ -76,7 +76,7 @@ bot.on('message', message => {
         .setColor('#ff0000')
         .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine :** *<https://discord.gg/J3dQ3Jx>*")
         message.channel.sendEmbed(help_embed);
-        console.log('Invitation du bot demandé !')
+        console.log('Invitation du serveur du bot demandé !')
     }
     
     if (message.content === prefix + "avatar"){
