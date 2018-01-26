@@ -115,7 +115,7 @@ bot.on('message', message => {
     if (message.content === prefix + "maj"){
     var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
-        .addField("**__Nouveautés récentes__**","[+slap] : Permet de donner une claque aux autres ! (BETA)\n[+youtube] : Affiche la chaine Youtube de Oxydaz Youtube.\n[+hug} : Permet de faire un calin aux autres ! (BETA)")
+        .addField("**__Nouveautés récentes__**","Unban général !")
         message.channel.sendEmbed(help_embed);
         console.log('pingpong');
     }
