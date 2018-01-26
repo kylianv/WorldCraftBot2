@@ -189,16 +189,29 @@ bot.on('message', message => {
 
     }
 
-    if (message.content === prefix + "xpstat"){
-        var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
-        var xpfinal = Object.values(xp);
-        var xp_embed = new Discord.RichEmbed()
-            .setTitle(`XP de ${message.author.username}`)
-            .setDescription("Voici tout vos xp monsieur !")
-            .addField("XP :", `${xpfinal[1]}xp`)
-        message.channel.send({embed: xp_embed});
+    if (message.content === "pd"){
+        message.delete("insulte pas")
+        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
+        console.log('insulte')
     }
-
+    
+    if (message.content === "Pd"){
+        message.delete("insulte pas")
+        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
+        console.log('insulte')
+    }
+    
+    if (message.content === "pD"){
+        message.delete("insulte pas")
+        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
+        console.log('insulte')
+    }
+    
+    if (message.content === "PD"){
+        message.delete("insulte pas")
+        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
+        console.log('insulte')
+    }
 });
 
 function random(min, max) {
