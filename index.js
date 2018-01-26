@@ -192,29 +192,11 @@ bot.on('message', message => {
 if (message.content === prefix +"avatar") {
         message.reply(message.author.avatarURL);
 
-    if (message.content === "pd"){
-        message.delete("insulte pas")
-        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
-        console.log('insulte')
+    if (message.content === prefix + "avatar"){
+        message.reply(message.author.avatarURL);
+        console.log('avatar demandé !')
     }
     
-    if (message.content === "Pd"){
-        message.delete("insulte pas")
-        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
-        console.log('insulte')
-    }
-    
-    if (message.content === "pD"){
-        message.delete("insulte pas")
-        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
-        console.log('insulte')
-    }
-    
-    if (message.content === "PD"){
-        message.delete("insulte pas")
-        message.author.send("Merci de ne pas insulter,un admin va vous mute voir ban !")
-        console.log('insulte')
-    }
 });
 
 function random(min, max) {
