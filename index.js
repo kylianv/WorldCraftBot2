@@ -71,6 +71,14 @@ bot.on('message', message => {
         console.log('Invitation du bot demandé !')
     }
     
+    if (message.content === prefix + "serveur"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine : <https://discord.gg/J3dQ3Jx>**")
+        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du bot demandé !')
+    }
+    
     if (message.content === prefix + "avatar"){
         message.reply(message.author.avatarURL);
         console.log('avatar demandé !')
