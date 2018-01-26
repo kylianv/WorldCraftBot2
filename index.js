@@ -52,11 +52,6 @@ bot.on('message', message => {
         console.log('Gros vent')
     }
         
-    if (message.content === "Test"){
-        message.reply("Euh, tu test quoi là ?");
-        console.log('Test !')
-    }
-        
     if (message.content === "test"){
         message.reply("Euh, tu test quoi là ?");
         console.log('Test !')
@@ -67,27 +62,10 @@ bot.on('message', message => {
         console.log('Tu es moche !')
     }
     
-    if (message.delete === "tg"){
-        message.delete(":x: Tu n'as pas le droit d'insulter !")
-        console.log('Insulte dise : Supprimer')
-    }
     
-    if (!message.content.startsWith(prefix)) return;
-    var args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0].toLowerCase()){
-
-        case "newstory":
-        var value = message.content.substr(10);
-        var author = message.author;
-        var number = db.get('histoires').map('id').value();
-        console.log(value);
-        message.reply("Ajout de l'histoire à la base de données")
-
-        db.get('histores')
-            .push({ story_value: value, story_author: author}).write()
-        
-        break;
+    if (message.content === prefix + "avatar"){
+        message.reply(message.author.avatarURL);
+        console.log('avatar demandé !')
     }
     
     if (message.content === prefix + "event"){
@@ -168,6 +146,7 @@ bot.on('message', message => {
         message.channel.sendEmbed(help_embed);
         console.log("Chaîne YouTube demandé !");
     }
+    
 
     if (message.content === "Comment vas-tu WorldCraftBot?"){
         random();
@@ -184,13 +163,24 @@ bot.on('message', message => {
 
     }
     
-    if (message.content === prefix +"avatar") {
-        message.reply(message.author.avatarURL);
-    }
+    
+    
+    if (!message.content.startsWith(prefix)) return;
+    var args = message.content.substring(prefix.length).split(" ");
 
-    if (message.content === prefix + "avatar"){
-        message.reply(message.author.avatarURL);
-        console.log('avatar demandé !')
+    switch (args[0].toLowerCase()){
+
+        case "newstory":
+        var value = message.content.substr(10);
+        var author = message.author;
+        var number = db.get('histoires').map('id').value();
+        console.log(value);
+        message.reply("Ajout de l'histoire à la base de données")
+
+        db.get('histores')
+            .push({ story_value: value, story_author: author}).write()
+        
+        break;
     }
     
 });
