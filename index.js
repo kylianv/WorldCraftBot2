@@ -32,7 +32,7 @@ bot.on('message', message => {
 
     if(message.author.bot)return;
         
-    if (message.content === prefix + "help"|| "Help"){
+    if (message.content === prefix + "help"||"Help"||"HELP"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#D9F200')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !")
