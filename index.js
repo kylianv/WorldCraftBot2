@@ -189,8 +189,9 @@ bot.on('message', message => {
 
     }
     
-if (message.content === prefix +"avatar") {
+    if (message.content === prefix +"avatar") {
         message.reply(message.author.avatarURL);
+    }
 
     if (message.content === prefix + "avatar"){
         message.reply(message.author.avatarURL);
