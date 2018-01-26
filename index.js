@@ -188,6 +188,9 @@ bot.on('message', message => {
         }
 
     }
+    
+if (message.content === prefix +"avatar") {
+        message.reply(message.author.avatarURL);
 
     if (message.content === "pd"){
         message.delete("insulte pas")
