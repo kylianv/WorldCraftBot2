@@ -66,7 +66,7 @@ bot.on('message', message => {
     if (message.content === prefix + "invite"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
-        .addField("**Lien pour inviter le bot sur votre serveur !**", "**Voici le lien pour m'ajouter dans votre serveur : <https://discordapp.com/api/oauth2/authorize?client_id=396452123002273792&permissions=8&scope=bot>**")
+        .addField("**Lien pour inviter le bot sur votre serveur !**", "**Voici le lien pour m'ajouter dans votre serveur :** *<https://discordapp.com/api/oauth2/authorize?client_id=396452123002273792&permissions=8&scope=bot>*")
         message.channel.sendEmbed(help_embed);
         console.log('Invitation du bot demandé !')
     }
@@ -74,7 +74,7 @@ bot.on('message', message => {
     if (message.content === prefix + "serveur"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
-        .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine : <https://discord.gg/J3dQ3Jx>**")
+        .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine :* **<https://discord.gg/J3dQ3Jx>**")
         message.channel.sendEmbed(help_embed);
         console.log('Invitation du bot demandé !')
     }
