@@ -63,6 +63,11 @@ bot.on('message', message => {
     }
     
     
+    if (message.content === prefix + "invite"){
+        .addField("**Lien pour inviter le bot sur votre serveur !**", "**Voici le lien pour m'ajouter dans votre serveur : <https://discordapp.com/api/oauth2/authorize?client_id=396452123002273792&permissions=8&scope=bot>**")
+        console.log('avatar demandé !')
+    }
+    
     if (message.content === prefix + "avatar"){
         message.reply(message.author.avatarURL);
         console.log('avatar demandé !')
