@@ -36,7 +36,7 @@ bot.on('message', message => {
         var help_embed = new Discord.RichEmbed()
         .setColor('#D9F200')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !")
-        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- Insultez le, il vous instule !\n- #grosvent : Il se fout de vous :wink: !")
+        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- #grosvent : Il se fout de vous :wink: !")
         .setFooter("Cordialement, WorldCraftBot")
         message.channel.send(help_embed);
         console.log("Commande Help demandée !");
@@ -65,11 +65,6 @@ bot.on('message', message => {
     if (message.content === "t moche"){
         message.reply("Euh, tu t'es vu toi ?");
         console.log('Tu es moche !')
-    }
-    
-    if (message.content === "nique ta mère"){
-        message.reply("Merci de ne pas insulte, <@292263751372242944> va vous mute voir ban !");
-        console.log('Insulte1')
     }
     
     if (message.delete === "tg"){
