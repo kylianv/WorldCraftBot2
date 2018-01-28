@@ -20,6 +20,7 @@ db.defaults({ histoires: [], xp: []}).write()
 var bot = new Discord.Client();
 var prefix = ("wc!");
 var randnum = 0;
+var usercreatedate = message.author.createdAt.toString().split(' ');
 
 bot.on('ready', () => {
     bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
@@ -52,6 +53,29 @@ bot.on('message', message => {
         message.reply("La commande Help vient de vous être envoyer en Message Privé")
         console.log("Commande HelpMp demandée !");
     }
+    
+     if (!message.content.startsWith(prefix)) return;
+     var args = message.content.substring(prefix.length).split(" ");
+
+     switch (args[0].toLowerCase()){
+
+}
+    
+        case "stats":
+    
+        var usercreatedate = message.author.createdAt.toString().split(' ')
+
+         var stats_embed = new discord.RichEmbed()
+         .setColor('#ff0000')
+         .setTitle(`Info de l'utilisateur : ${message.author.username}`)
+         .addField("User ID :", msgauthor, true)
+         .addField("Date de création de l'utilisateur", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
+         .setThumbnail(message.author.avatarURL)
+
+         message.channel.send({embed: stats_embed})
+
+        break;
+    
 
     if (message.content === "ping"){
         message.channel.send(":ping_pong: pong");
