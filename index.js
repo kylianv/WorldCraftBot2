@@ -59,7 +59,7 @@ bot.on('message', message => {
     }
     
         if (message.content === "#grosvent"){
-        message.reply("Ouais c'est le cas de la dire !");
+        message.channel.send("Ouais c'est le cas de la dire !");
         console.log('Gros vent')
     }
         
@@ -91,7 +91,7 @@ bot.on('message', message => {
     }
     
     if (message.content === prefix + "avatar"){
-        message.reply(message.author.avatarURL);
+        message.channel.send(message.author.avatarURL);
         console.log('avatar demandé !')
     }
     
