@@ -58,8 +58,6 @@ bot.on('message', message => {
      var args = message.content.substring(prefix.length).split(" ");
 
      switch (args[0].toLowerCase()){
-
-}
     
         case "stats":
     
@@ -75,6 +73,8 @@ bot.on('message', message => {
          message.channel.send({embed: stats_embed})
 
         break;
+             
+}
     
 
     if (message.content === "ping"){
