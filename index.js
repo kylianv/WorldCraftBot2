@@ -53,30 +53,6 @@ bot.on('message', message => {
         console.log("Commande HelpMp demandée !");
     }
     
-    
-    
-   if (!message.content.startsWith(prefix)) return;
-     var args = message.content.substring(prefix.length).split(" ");
-
-     switch (args[0].toLowerCase()){
-
- case "stats":
-
-        var usercreatedate = message.author.createdAt.toString().split(' ')
-
-         var stats_embed = new discord.RichEmbed()
-         .setColor('#01FF3E')
-         .setTitle(`stats utilisateur : ${message.author.username}`)
-         .addField("user ID", msgauthor, true)
-         .addField("date de création de l'utilisateur", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
-         .setThumbnail(message.author.avatarURL)
-
-         message.channel.send({embed: stats_embed})
-
-        break;
-             
-}
-    
 
     if (message.content === "ping"){
         message.channel.send(":ping_pong: pong");
