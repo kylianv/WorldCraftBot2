@@ -20,7 +20,6 @@ db.defaults({ histoires: [], xp: []}).write()
 var bot = new Discord.Client();
 var prefix = ("wc!");
 var randnum = 0;
-var usercreatedate = message.author.createdAt.toString().split(' ');
 
 bot.on('ready', () => {
     bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
