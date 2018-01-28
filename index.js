@@ -54,23 +54,35 @@ bot.on('message', message => {
         console.log("Commande HelpMp demandée !");
     }
     
+    
+    
      if (!message.content.startsWith(prefix)) return;
      var args = message.content.substring(prefix.length).split(" ");
 
-    
-    if (message.content === prefix + "stat"){
+     switch (args[0].toLowerCase()){
+
+        case "stats":
+
+        var userpointdb = db.get("point").filter({user: msgauthor}).find("point").value();
+        var userpoint = Object.values(userpointdb);
+        var Inventorydb = db.get("Inventory").filter({user: msgauthor}).find("items").value();
+        var Inventory = Object.values(Inventorydb);
         var usercreatedate = message.author.createdAt.toString().split(' ')
 
          var stats_embed = new discord.RichEmbed()
-         .setColor('#ff0000')
-         .setTitle(`Info de l'utilisateur : ${message.author.username}`)
-         .addField("User ID :", msgauthor, true)
-         .addField("Date de création de l'utilisateur", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
+         .setColor('#01FF3E')
+         .setTitle(`stats utilisateur : ${message.author.username}`)
+         .addField("point",`${userpoint[1]} point`, true)
+         .addField("user ID", msgauthor, true)
+         .addField("inventaire", Inventory[1])
+         .addField("date de création de l'utilisateur", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
          .setThumbnail(message.author.avatarURL)
 
          message.channel.send({embed: stats_embed})
+
+        break;
              
-    }
+     }
     
 
     if (message.content === "ping"){
