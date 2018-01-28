@@ -54,7 +54,7 @@ bot.on('message', message => {
     }
 
     if (message.content === "ping"){
-        message.reply("pong");
+        message.channel.send(":ping_pong: pong");
         console.log('ping pong')
     }
     
@@ -64,7 +64,7 @@ bot.on('message', message => {
     }
         
     if (message.content === "test"){
-        message.reply("Euh, tu test quoi là ?");
+        message.reply("Tout est bon !");
         console.log('Test !')
     }
 
