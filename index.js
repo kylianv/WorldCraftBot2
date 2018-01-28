@@ -41,6 +41,16 @@ bot.on('message', message => {
         message.channel.send(help_embed);
         console.log("Commande Help demandée !");
     }
+    
+    if (message.content === prefix + "helpmp"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#D9F200')
+        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !")
+        .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- #grosvent : Il se fout de vous :wink: !")
+        .setFooter("Cordialement, WorldCraftBot")
+        message.author.send(help_embed);
+        console.log("Commande Help demandée !");
+    }
 
     if (message.content === "ping"){
         message.reply("pong");
