@@ -56,12 +56,12 @@ bot.on('message', message => {
     
     
     
-     if (!message.content.startsWith(prefix)) return;
+   if (!message.content.startsWith(prefix)) return;
      var args = message.content.substring(prefix.length).split(" ");
 
      switch (args[0].toLowerCase()){
 
-        case "stats":
+ case "stats":
 
         var usercreatedate = message.author.createdAt.toString().split(' ')
 
@@ -76,7 +76,7 @@ bot.on('message', message => {
 
         break;
              
-     }
+}
     
 
     if (message.content === "ping"){
