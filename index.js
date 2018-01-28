@@ -57,10 +57,8 @@ bot.on('message', message => {
      if (!message.content.startsWith(prefix)) return;
      var args = message.content.substring(prefix.length).split(" ");
 
-     switch (args[0].toLowerCase()){
     
-        case "stats":
-    
+    if (message.content === prefix + "stat"){
         var usercreatedate = message.author.createdAt.toString().split(' ')
 
          var stats_embed = new discord.RichEmbed()
@@ -71,10 +69,8 @@ bot.on('message', message => {
          .setThumbnail(message.author.avatarURL)
 
          message.channel.send({embed: stats_embed})
-
-        break;
              
-}
+    }
     
 
     if (message.content === "ping"){
