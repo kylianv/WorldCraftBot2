@@ -63,18 +63,12 @@ bot.on('message', message => {
 
         case "stats":
 
-        var userpointdb = db.get("point").filter({user: msgauthor}).find("point").value();
-        var userpoint = Object.values(userpointdb);
-        var Inventorydb = db.get("Inventory").filter({user: msgauthor}).find("items").value();
-        var Inventory = Object.values(Inventorydb);
         var usercreatedate = message.author.createdAt.toString().split(' ')
 
          var stats_embed = new discord.RichEmbed()
          .setColor('#01FF3E')
          .setTitle(`stats utilisateur : ${message.author.username}`)
-         .addField("point",`${userpoint[1]} point`, true)
          .addField("user ID", msgauthor, true)
-         .addField("inventaire", Inventory[1])
          .addField("date de création de l'utilisateur", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
          .setThumbnail(message.author.avatarURL)
 
