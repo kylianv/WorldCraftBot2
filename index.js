@@ -49,7 +49,7 @@ bot.on('message', message => {
         .addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- #grosvent : Il se fout de vous :wink: !")
         .setFooter("Cordialement, WorldCraftBot")
         message.author.send(help_embed);
-        console.log("Commande Help demandée !");
+        console.log("Commande HelpMp demandée !");
     }
 
     if (message.content === "ping"){
