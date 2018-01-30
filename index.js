@@ -58,7 +58,6 @@ bot.on('message', message => {
         var xp_embed = new Discord.RichEmbed()
 	.setColor('#ff0000')
         .setTitle(`Information de ${message.author.username}`)
-        .addField("User ID", msgauthor, true)
         .addField("Date de création de ${message.author.username}", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
 	.setThumbnail(message.author.avatarURL)
         message.author.send(help_embed);
