@@ -230,26 +230,6 @@ bot.on('message', message => {
 
     }
     
-    
-    
-    if (!message.content.startsWith(prefix)) return;
-    var args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0].toLowerCase()){
-
-        case "newstory":
-        var value = message.content.substr(10);
-        var author = message.author;
-        var number = db.get('histoires').map('id').value();
-        console.log(value);
-        message.reply("Ajout de l'histoire à la base de données")
-
-        db.get('histores')
-            .push({ story_value: value, story_author: author}).write()
-        
-        break;
-    }
-    
 });
 
 function random(min, max) {
