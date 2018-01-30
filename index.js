@@ -29,6 +29,11 @@ bot.on('ready', () => {
 bot.login(process.env.TOKEN);
 
 bot.on('message', message => {
+    	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
+		const command = args.shift().toLowerCase()
+	var msgauthor = message.author.id;
+	
+    if(message.author.bot)return;
 	
     if(!db.get("xp").find({user: msgauthor}).value()){
         db.get("xp").push({user: msgauthor, xp: 1}).write();
@@ -42,7 +47,6 @@ bot.on('message', message => {
         db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
 }
 
-    if(message.author.bot)return;
         
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
@@ -72,7 +76,7 @@ bot.on('message', message => {
         .setTitle(`Information de ${message.author.username}`)
         .addField("Date de création de ${message.author.username}", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
 	.setThumbnail(message.author.avatarURL)
-        message.author.send(help_embed);
+        message.channel.send({embed: xp_embed});
         console.log("Commande Info demandé");
     }
 	
