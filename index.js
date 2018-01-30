@@ -155,7 +155,7 @@ bot.on('message', message => {
     if (message.content === prefix + "maj"){
     var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
-        .addField("**__Nouveautés récentes__**","Unban général !")
+        .addField("**__Nouveautés récentes__**","Unban général !\n Ajout des xp avec moi !")
         message.channel.sendEmbed(help_embed);
         console.log('pingpong');
     }
