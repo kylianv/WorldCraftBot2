@@ -53,6 +53,17 @@ bot.on('message', message => {
         console.log("Commande HelpMp demandée !");
     }
     
+    if (message.content === prefix + "info"){
+        var usercreatedate = message.author.createdAt.toString().split(' ')
+        var xp_embed = new Discord.RichEmbed()
+        .setTitle(`Information de ${message.author.username}`)
+        .addField("User ID", msgauthor, true)
+        .addField("Date de création de ${message.author.username}", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
+	    .setThumbnail(message.author.avatarURL)
+        message.author.send(help_embed);
+        console.log("Commande Info demandé");
+    }
+    
 
     if (message.content === "ping"){
         message.channel.send(":ping_pong: pong");
