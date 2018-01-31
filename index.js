@@ -84,8 +84,8 @@ bot.on('message', message => {
         var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
         var xpfinal = Object.values(xp);
         var xp_embed = new Discord.RichEmbed()
-        .setTitle(`XP de ${message.author.username}`)
-        .setDescription("Voici tout vos xp !")
+	.addField("Date de création de", message.author.username)
+	.setDescription("Voici tout vos xp !")
         .addField("XP :", `${xpfinal[1]}xp`)
 	.setThumbnail(message.author.avatarURL)
         message.channel.send({embed: xp_embed});
