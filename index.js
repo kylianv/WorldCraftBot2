@@ -59,6 +59,11 @@ bot.on('message', message => {
 	.addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- #grosvent : Il se fout de vous  !")
 	.setFooter("Cordialement, WorldCraftBot")
 	message.channel.send(help_embed2);
+	var help_embed3 = new Discord.RichEmbed()
+	.setColor('#ff0000')
+	.addField("Commandes réservé au staff !", "- wc!suggest Votre message : Disponible uniquement dans <#348545352904998914> !")
+	.setFooter("Cordialement, WorldCraftBot")
+	message.channel.send(help_embed3);
         console.log("Commande Help demandée !");
     }
     
