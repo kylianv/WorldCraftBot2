@@ -74,8 +74,7 @@ bot.on('message', message => {
         var xp_embed = new Discord.RichEmbed()
 	.setColor('#ff0000')
         .addField("Information de", ${message.author.username})
-        .addField("Date de création de", message.author.username", usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3], true)
-	.setThumbnail(message.author.avatarURL)
+        .addField(`Date de création de : ${message.author.username}`, usercreatedate[1] + ' ' + usercreatedate[2]+','+usercreatedate[3])	.setThumbnail(message.author.avatarURL)
         message.channel.send({embed: xp_embed});
         console.log("Commande Info demandé");
     }
