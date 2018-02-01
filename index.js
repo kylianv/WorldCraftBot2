@@ -72,17 +72,17 @@ bot.on('message', message => {
         .setColor('#12a0aa')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !")
         .setFooter("Cordialement, WorldCraftBot")
-        message.channel.send(help_embed);
+        message.author.send(help_embed);
 	var help_embed2 = new Discord.RichEmbed()
 	.setColor('#12a0aa')
 	.addField("Commandes divers !", " - ping : Le bot répond pong !\n- test : Le bot vous répond !\n- #grosvent : Il se fout de vous  !")
 	.setFooter("Cordialement, WorldCraftBot")
-	message.channel.send(help_embed2);
+	message.author.send(help_embed2);
 	var help_embed3 = new Discord.RichEmbed()
 	.setColor('#ff0000')
 	.addField("Commandes réservé au staff !", "- wc!suggest Votre message : Disponible uniquement dans <#348545352904998914> !")
 	.setFooter("Cordialement, WorldCraftBot")
-	message.channel.send(help_embed3);
+	message.author.send(help_embed3);
         message.reply("La commande Help vient de vous être envoyer en Message Privé")
         console.log("Commande HelpMp demandée !");
     }
