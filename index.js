@@ -70,7 +70,7 @@ bot.on('message', message => {
     if (message.content === prefix + "helpmp"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
-        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !")
+        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !\n- wc!site : Vous donne le lien du site de WorldCraft !\n- wc!entreprise : Vous donne le lien de l'Entreprise de WorldCraft !\n- wc!bot : Vous donne le lien du site de WorldCraftBot !\n- wc!sondage : Vous donne les derniers sondages !")
         .setFooter("Cordialement, WorldCraftBot")
         message.author.send(help_embed);
 	var help_embed2 = new Discord.RichEmbed()
@@ -140,11 +140,42 @@ bot.on('message', message => {
         message.channel.sendEmbed(help_embed);
         console.log('Invitation du bot demandé !')
     }
+	
+    if (message.content === prefix + "site"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Site de WorldCraft [FR]**", "**Voici le lien du site de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraft>*")
+        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du serveur du bot demandé !')
+    }
+	
+    if (message.content === prefix + "entreprise"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Entreprise de WorldCraft [FR]**", "**Voici le lien du l'Entreprise de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftentreprise>*")        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du serveur du bot demandé !')
+    }
+	
+    if (message.content === prefix + "bot"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Site du Bot de WorldCraft [FR]**", "**Voici le lien du bot site de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftbot>*")
+        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du serveur du bot demandé !')
+    }
     
     if (message.content === prefix + "serveur"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine :** *<https://discord.gg/J3dQ3Jx>*")
+        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du serveur du bot demandé !')
+    }
+	
+    if (message.content === prefix + "sondage"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Sondage de WorldCraft [FR] !**", "**Vous trouverez tous les sondages dans le salon : <#394245430420176906>**")
         message.channel.sendEmbed(help_embed);
         console.log('Invitation du serveur du bot demandé !')
     }
