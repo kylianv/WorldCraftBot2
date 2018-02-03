@@ -179,6 +179,14 @@ bot.on('message', message => {
         message.channel.sendEmbed(help_embed);
         console.log('Invitation du serveur du bot demandé !')
     }
+	
+    if (message.content === prefix + "forum"){
+        var help_embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .addField("**Forum de WorldCraft [FR] !**", "**Voici le forum de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraft/forum>**")
+        message.channel.sendEmbed(help_embed);
+        console.log('Invitation du serveur du bot demandé !')
+    }
     
     if (message.content === prefix + "avatar"){
         message.channel.send(message.author.avatarURL);
