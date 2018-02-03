@@ -152,7 +152,8 @@ bot.on('message', message => {
     if (message.content === prefix + "entreprise"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
-        .addField("**Entreprise de WorldCraft [FR]**", "**Voici le lien du l'Entreprise de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftentreprise>*")        message.channel.sendEmbed(help_embed);
+        .addField("**Entreprise de WorldCraft [FR]**", "**Voici le lien du l'Entreprise de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftentreprise>*")
+	message.channel.sendEmbed(help_embed);
         console.log('Invitation du serveur du bot demandé !')
     }
 	
