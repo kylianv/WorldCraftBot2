@@ -51,7 +51,7 @@ bot.on('message', message => {
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
-        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !")
+        .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !\n- wc!site : Vous donne le lien du site de WorldCraft !\n- wc!entreprise : Vous donne le lien de l'Entreprise de WorldCraft !\n- wc!bot : Vous donne le lien du site de WorldCraftBot !\n- wc!sondage : Vous donne les derniers sondages !")
         .setFooter("Cordialement, WorldCraftBot")
         message.channel.send(help_embed);
 	var help_embed2 = new Discord.RichEmbed()
