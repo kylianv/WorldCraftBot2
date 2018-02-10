@@ -28,6 +28,13 @@ bot.on('ready', () => {
 
 bot.login(process.env.TOKEN);
 
+bot.on('guildMemberAdd', function(member) {
+if ( member.user.bot === true) {
+member.kick()
+}
+}
+) 
+
 bot.on('message', message => {
     	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
 		const command = args.shift().toLowerCase()
