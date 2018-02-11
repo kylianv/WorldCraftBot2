@@ -63,7 +63,7 @@ bot.on('message', function(message){
 
 
 
-                const kickbot = 1
+
 
 
 
