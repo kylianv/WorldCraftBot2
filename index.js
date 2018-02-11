@@ -24,7 +24,7 @@ var randnum = 0;
 bot.on('ready', () => {
     bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
     console.log("Bot Ready !");
-	let kickbot = 1
+	
 });
 
 bot.login(process.env.TOKEN);
