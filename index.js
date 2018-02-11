@@ -57,10 +57,10 @@ bot.on('message', message => {
     if (message.content === prefix + "kickbot" )  {
     if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) {
     if (kickbot === 1) {
-	    let kickbot = 0 
+	    const kickbot = 0 
 	    message.channel.send('Le kickbot est bien désactivé' ) }
     if ( kickbot === 0 )  { 
-		let kickbot = 1
+		const kickbot = 1
 		message.channel.send('Le kickbot est bien activé' ) } 
     } else {
 	    message.channel.send('Tu n\' es pas autorisé a faire cette commande')
