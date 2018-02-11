@@ -59,7 +59,7 @@ bot.on('message', function(message){
 
 
 
-    if (kickbot === 0)  { 
+
 
 
 
@@ -87,7 +87,14 @@ bot.on('message', function(message){
 
 
 
-    } } ) 
+    } 
+if (message.content === prefix + "kickbot"){
+ if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) { 
+if (kickbot === 0) {
+	let kickbot= 1
+	message.channel.send('Le kickot est désormais activé') } 
+	
+} }} ) 
 	
 bot.on('message', message => {
     	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
