@@ -3,7 +3,7 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const express = require('express');
 const app = express();
-
+const kickbot = 1
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
