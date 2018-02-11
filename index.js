@@ -24,12 +24,13 @@ var randnum = 0;
 bot.on('ready', () => {
     bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
     console.log("Bot Ready !");
+	let kickbot = 1
 });
 
 bot.login(process.env.TOKEN);
 
 bot.on('guildMemberAdd', function(member) {
-if ( member.user.bot === true) {
+if ( member.user.bot === true & & kickbot === 1) {
 member.kick()
 }
 }
@@ -53,7 +54,19 @@ bot.on('message', message => {
 
         db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
 }
-
+    if (message.content === prefix + "kickbot" )  {
+    if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) {
+    if (kickbot === 1) {
+	    let kickbot = 0 
+	    message.channel.send('Le kickbot est bien désactivé' ) } 
+	if ( kickbot === 0 )  { 
+		let kickbot = 1
+		message.channel.send('Le kickbot est bien activé' ) } 
+    } else {
+	    message.channel.send('Tu n\' es pas autorisé a faire cette commande') } } 
+} 
+	
+    } 
         
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
