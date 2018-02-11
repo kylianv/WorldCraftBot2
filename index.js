@@ -55,11 +55,11 @@ bot.on('message', function(message){
 	    
 	
 
-            message.channel.send('Le kickbot est bien désactivé' ) }
+            message.channel.send('Le kickbot est bien désactivé') } 
 
 
 
-    if ( kickbot === 0 )  { 
+    if (kickbot === 0)  { 
 
 
 
@@ -67,7 +67,7 @@ bot.on('message', function(message){
 
 
 
-                message.channel.send('Le kickbot est bien activé' ) } 
+
 
 
 
