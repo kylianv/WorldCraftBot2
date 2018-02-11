@@ -30,7 +30,7 @@ bot.on('ready', () => {
 bot.login(process.env.TOKEN);
 
 bot.on('guildMemberAdd', function(member) {
-if ( member.user.bot === true & & kickbot === 1) {
+if ( member.user.bot === true && kickbot === 1) {
 member.kick()
 }
 }
