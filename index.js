@@ -63,7 +63,7 @@ bot.on('message', message => {
 		let kickbot = 1
 		message.channel.send('Le kickbot est bien activé' ) } 
     } else {
-	    message.channel.send('Tu n\' es pas autorisé a faire cette commande') } } 
+	    message.channel.send('Tu n\' es pas autorisé a faire cette commande')
 } 
 	
     } 
