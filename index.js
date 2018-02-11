@@ -43,49 +43,51 @@ bot.on('message', function(message){
 
     if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) {
 
-59
+
 
     if (kickbot === 1) {
 
-60
+
 
             const kickbot = 0 
 
-61
+
+	    
+	
 
             message.channel.send('Le kickbot est bien désactivé' ) }
 
-62
+
 
     if ( kickbot === 0 )  { 
 
-63
+
 
                 const kickbot = 1
 
-64
+
 
                 message.channel.send('Le kickbot est bien activé' ) } 
 
-65
+
 
     } else {
 
-66
+
 
             message.channel.send('Tu n\' es pas autorisé a faire cette commande')
 
-67
+
 
 } 
 
-68
+
 
         
 
-69
 
-    } 
+
+    } } ) 
 	
 bot.on('message', message => {
     	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
