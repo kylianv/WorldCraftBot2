@@ -40,14 +40,14 @@ bot.on('message', function(message){
 if (message.content === prefix + "kickbotoff" )  {
     if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) {
        const kickbot = 1
-       message.channel.send('Le kickbot est bien désactivé')
+       message.channel.send('Le kickbot est bien désactivé(debug:' + kickbot + ')')
     } else {
             message.channel.send('Tu n\' es pas autorisé a faire cette commande')
 } } 
 if (message.content === prefix + "kickboton"){
 if ( message.author.id === '292263751372242944' || message.author.id === '394255380940849153' || message.author.id === '335118921088630796' || message.author.id === '270265203269042188' || message.author.id === '283625708863881216' || message.author.id === '205752580251451392' || message.author.id === '344061192903327744' ) { 
 	let kickbot = 2
-	message.channel.send('Le kickot est désormais activé')
+	message.channel.send('Le kickot est désormais activé(debug:' + kickbot + ')')
 } else {
 	message.channel.send('Tu n\' es pas autorisé a faire cette commande')}
 } } ) 
