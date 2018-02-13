@@ -3,7 +3,7 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const express = require('express');
 const app = express();
-var kickbot;
+//var kickbot;
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
@@ -29,7 +29,7 @@ bot.on('ready', () => {
 
 bot.login(process.env.TOKEN);
 
-bot.on('guildMemberAdd', function(member) {
+/*bot.on('guildMemberAdd', function(member) {
 if ( member.user.bot === true && kickbot === 2) {
 member.kick()
 }
@@ -55,7 +55,7 @@ if (message.content === prefix + "kickboton"){
 if(message.content === prefix + 'kickbotdebug'){
 message.channel.send('debug info :' + kickbot )}
 
-} ) 
+} ) */
 	
 bot.on('message', message => {
     	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
