@@ -76,7 +76,7 @@ bot.on('message', message => {
     bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: game});
     message.reply("Mon activite à été Actualisé !")
 }
-   	const args = message.content.slice(prefix.length).trim().split(/ wc!/g);
+//   	const args = message.content.slice(prefix.length).trim().split(/ wc!/g);
 	const command = args.shift().toLowerCase()
 	var msgauthor = message.author.id;
 	
