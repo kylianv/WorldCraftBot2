@@ -59,6 +59,24 @@ message.channel.send('debug info :' + kickbot )}
 } ) */
 	
 bot.on('message', message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  if(cmd === `<@396452123002273792>`){
+    message.reply("Mon préfix est ``wc!``. **wc!help** pour voir mes commandes")
+  }
+  
+    if(cmd === `${prefix}actualise`){
+    let game = args.join(" ").slice(22);
+    message.delete(message.author)                              
+    bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: game});
+    message.reply("Mon activite à été Actualisé !")
+}
     	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
 		const command = args.shift().toLowerCase()
 	var msgauthor = message.author.id;
