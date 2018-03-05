@@ -5,7 +5,6 @@ const express = require('express');
 const app = express();
 const bot = new Discord.Client({disableEveryone: true});
 const botconfig = require("./botconfig.json");
-const tokenfile = require("./token.json");
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
@@ -77,8 +76,8 @@ bot.on('message', message => {
     bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: game});
     message.reply("Mon activite à été Actualisé !")
 }
-//    	const args = message.content.slice(prefix.length).trim().split(/ wc!/g)
-		const command = args.shift().toLowerCase()
+   	const args = message.content.slice(prefix.length).trim().split(/ wc!/g);
+	const command = args.shift().toLowerCase()
 	var msgauthor = message.author.id;
 	
     if(message.author.bot)return;
