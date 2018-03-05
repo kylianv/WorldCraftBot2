@@ -23,7 +23,7 @@ var prefix = ("wc!");
 var randnum = 0;
 
 bot.on('ready', function () {
-  console.log(`Je suis connecté sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs ! | wc!help`)
+  console.log(`Je suis connecté sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs !`)
   bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: "WATCHING"});
 })
 
