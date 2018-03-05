@@ -4,7 +4,7 @@ const FileSync = require('lowdb/adapters/FileSync');
 const express = require('express');
 const app = express();
 const bot = new Discord.Client({disableEveryone: true});
-const botconfig = require("./botconfig.json");
+//const botconfig = require("./botconfig.json");
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
