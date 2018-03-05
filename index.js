@@ -19,7 +19,7 @@ app.listen(app.get('port'), function(){
 
 db.defaults({ histoires: [], xp: []}).write()
 
-var bot = new Discord.Client();
+//var bot = new Discord.Client();
 var prefix = ("wc!");
 var randnum = 0;
 
