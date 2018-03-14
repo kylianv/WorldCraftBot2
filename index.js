@@ -4,7 +4,6 @@ const FileSync = require('lowdb/adapters/FileSync');
 const express = require('express');
 const app = express();
 const bot = new Discord.Client({disableEveryone: true});
-//const botconfig = require("./botconfig.json");
 const adapter= new FileSync('database.json');
 const db = low(adapter);
 
@@ -22,10 +21,10 @@ db.defaults({ histoires: [], xp: []}).write()
 var prefix = ("wc!");
 var randnum = 0;
 
-bot.on('ready', function () {
-  console.log(`Je suis connecté sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs !`)
-  bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: "WATCHING"});
-})
+bot.on('ready', () => {
+    bot.user.setPresence({game: { name: '[wc!help] Bot Officiel de WorldCraft, https://discord.gg/J3dQ3Jx', type: 0}})
+    console.log("Bot Ready !");
+});
 
 bot.login(process.env.TOKEN);
 
@@ -93,7 +92,7 @@ bot.on('message', message => {
 
         db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
 } 	     
-    if (cmd === `${prefix}help`){
+    if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !\n- wc!site : Vous donne le lien du site de WorldCraft !\n- wc!entreprise : Vous donne le lien de l'Entreprise de WorldCraft !\n- wc!bot : Vous donne le lien du site de WorldCraftBot !\n- wc!sondage : Vous donne les derniers sondages !\n- wc!sanction : Vous donne la liste des sanctions de WorldCraft !\n- wc!nsfw : Vous donnes des infos sur le salon NSFW !")
@@ -112,7 +111,7 @@ bot.on('message', message => {
         console.log("Commande Help demandée !");
     }
     
-    if (cmd === `${prefix}helpmp`){
+    if (message.content === prefix + "helpmp"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
         .addField("Commandes du bot !", " - wc!help : Affiche les commandes du bot !\n- wc!helpmp : Affiche les commandes du bot en message privé !\n- wc!youtube : Le lien de notre chaîne YouTube !\n- wc!paypal : Vous donne le paypal de WorldCraft !\n- wc!maj : Il vous donne les mises à jour de la semaine !\n- wc!info : Vous donnes des informations sur vous !\n- wc!infode @user : Vous donnes des informations sur la personnes de votre choix ! **(Pas encore disponible)**\n- wc!xpstat : Vous donnes votre xp !\n- wc!site : Vous donne le lien du site de WorldCraft !\n- wc!entreprise : Vous donne le lien de l'Entreprise de WorldCraft !\n- wc!bot : Vous donne le lien du site de WorldCraftBot !\n- wc!sondage : Vous donne les derniers sondages !\n- wc!sanction : Vous donne la liste des sanctions de WorldCraft !\n- wc!nsfw : Vous donnes des infos sur le salon NSFW !")
@@ -132,7 +131,7 @@ bot.on('message', message => {
         console.log("Commande HelpMp demandée !");
     }
 	
-  if(cmd === `${prefix}serverinfo`){
+  if(message.content === prefix + "serverinfo"){
 
     message.delete(message.author)
 
@@ -150,7 +149,7 @@ bot.on('message', message => {
     message.channel.send(serveurembed);
 }
 	
-  if(cmd === `${prefix}si`){
+  if(message.content === prefix + "si"){
 
     message.delete(message.author)
 
@@ -168,7 +167,7 @@ bot.on('message', message => {
     message.channel.send(serveurembed);
 }
     
-    if (cmd === `${prefix}info`){
+    if (message.content === prefix + "info"){
 	var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
         var xpfinal = Object.values(xp);
         var usercreatedate = message.author.createdAt.toString().split(' ')
@@ -181,7 +180,7 @@ bot.on('message', message => {
         console.log("Commande Info demandé");
     }
 	
-   if (cmd === `${prefix}xpstat`){
+   if (message.content === prefix + "xpstat"){
         var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
         var xpfinal = Object.values(xp);
         var xp_embed = new Discord.RichEmbed()
@@ -214,7 +213,7 @@ bot.on('message', message => {
     }
     
     
-    if (cmd === `${prefix}invite`){
+    if (message.content === prefix + "invite"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Lien pour inviter le bot sur votre serveur !**", "**Voici le lien pour m'ajouter dans votre serveur :** *<https://discordapp.com/api/oauth2/authorize?client_id=396452123002273792&permissions=8&scope=bot>*")
@@ -222,7 +221,7 @@ bot.on('message', message => {
         console.log('Invitation du bot demandé !')
     }
 	
-    if (cmd === `${prefix}don`){
+    if (message.content === prefix + "don"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Pour faire un don à WorldCraft [FR] !**", "**Pour faire un don au staff : <https://www.paypal.me/worldcraftofficiel>\nMerci d'avance**")
@@ -230,7 +229,7 @@ bot.on('message', message => {
         console.log('Invitation du bot demandé !')
     }
 	
-    if (cmd === `${prefix}site`){
+    if (message.content === prefix + "site"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Site de WorldCraft [FR]**", "**Voici le lien du site de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraft>*")
@@ -238,7 +237,7 @@ bot.on('message', message => {
         console.log('Invitation du serveur du bot demandé !')
     }
 	
-    if (cmd === `${prefix}entreprise`){
+    if (message.content === prefix + "entreprise"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Entreprise de WorldCraft [FR]**", "**Voici le lien du l'Entreprise de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftentreprise>*")
@@ -246,7 +245,7 @@ bot.on('message', message => {
         console.log('Invitation du serveur du bot demandé !')
     }
 	
-    if (cmd === `${prefix}bot`){
+    if (message.content === prefix + "bot"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Site du Bot de WorldCraft [FR]**", "**Voici le lien du bot site de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraftbot>*")
@@ -254,7 +253,7 @@ bot.on('message', message => {
         console.log('Invitation du serveur du bot demandé !')
     }
     
-    if (cmd === `${prefix}serveur`){
+    if (message.content === prefix + "serveur"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Lien de mon serveur !**", "**Voici le lien mon serveur discord d'origine :** *<https://discord.gg/J3dQ3Jx>*")
@@ -262,7 +261,7 @@ bot.on('message', message => {
         console.log('Invitation du serveur du bot demandé !')
     }
 	
-    if (cmd === `${prefix}forum`){
+    if (message.content === prefix + "forum"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("**Forum de WorldCraft [FR] !**", "**Voici le forum de WorldCraft [FR] : <https://officielworldcraft.wixsite.com/worldcraft/forum>**")
@@ -270,12 +269,12 @@ bot.on('message', message => {
         console.log('Invitation du serveur du bot demandé !')
     }
     
-    if (cmd === `${prefix}avatar`){
+    if (message.content === prefix + "avatar"){
         message.channel.send(message.author.avatarURL);
         console.log('avatar demandé !')
     }
     
-    if (cmd === `${prefix}event`){
+    if (message.content === prefix + "event"){
     var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**__Event Programmés__**","*Bonjour, aucun event programmé pour le moment !*")
@@ -283,7 +282,7 @@ bot.on('message', message => {
         console.log('pingpong');
     }
     
-    if (cmd === `${prefix}paypal`){
+    if (message.content === prefix + "paypal"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#ff0000')
         .addField("Voici le lien du paypal : https://www.paypal.me/worldcraftofficiel", 'Le lien peut changer à tout moment !',true)
@@ -292,7 +291,7 @@ bot.on('message', message => {
         console.log('pong')
     }
     
-    if (cmd === `${prefix}maj`){
+    if (message.content === prefix + "maj"){
     var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**__Nouveautés récentes__**","Unban général !\n Ajout des xp avec moi !")
@@ -300,7 +299,7 @@ bot.on('message', message => {
         console.log('pingpong');
     }
 
-    if (cmd === `${prefix}youtube`){
+    if (message.content === prefix + "youtube"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
@@ -309,7 +308,7 @@ bot.on('message', message => {
         console.log("Chaîne YouTube demandé !");
     }
 
-    if (cmd === `${prefix}Youtube`){
+    if (message.content === prefix + "Youtube"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
@@ -318,7 +317,7 @@ bot.on('message', message => {
         console.log("Chaîne YouTube demandé !");
     }
 
-    if (cmd === `${prefix}YouTube`){
+    if (message.content === prefix + "YouTube"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
@@ -327,7 +326,7 @@ bot.on('message', message => {
         console.log("Chaîne YouTube demandé !");
     }
 
-    if (cmd === `${prefix}yt`){
+    if (message.content === prefix + "yt"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
@@ -336,7 +335,7 @@ bot.on('message', message => {
         console.log("Chaîne YouTube demandé !");
     }
 
-    if (cmd === `${prefix}YT`){
+    if (message.content === prefix + "YT"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
@@ -345,7 +344,7 @@ bot.on('message', message => {
         console.log("Chaîne YouTube demandé !");
     }
 
-    if (cmd === `${prefix}Yt`){
+    if (message.content === prefix + "Yt"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#25c059')
         .addField("**Salut!**", "Voici le lien de la chaine youtube : <https://www.youtube.com/channel/UCd8YB_jkEMrKDTyI2f2Eahw>")
