@@ -57,29 +57,17 @@ message.channel.send('debug info :' + kickbot )}
 } ) */
 	
 bot.on('message', message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
 
-  let prefix = botconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
+	if(message.author.bot)return;
 
-  if(cmd === `<@396452123002273792>`){
+  if(message.content === `<@396452123002273792>`){
     message.reply("Mon préfix est ``wc!``. **wc!help** pour voir mes commandes")
   }
-  
-    if(cmd === `${prefix}actualise`){
-    let game = args.join(" ").slice(22);
-    message.delete(message.author)                              
-    bot.user.setActivity(`${bot.users.size} utilisateurs | ${bot.guilds.size} serveurs`, {type: game});
-    message.reply("Mon activite à été Actualisé !")
-}
-//   	const args = message.content.slice(prefix.length).trim().split(/ wc!/g);
+	
 	const command = args.shift().toLowerCase()
 	var msgauthor = message.author.id;
 	
-    if(message.author.bot)return;
+
 	
     if(!db.get("xp").find({user: msgauthor}).value()){
         db.get("xp").push({user: msgauthor, xp: 1}).write();
@@ -130,42 +118,6 @@ bot.on('message', message => {
         message.reply("La commande Help vient de vous être envoyer en Message Privé")
         console.log("Commande HelpMp demandée !");
     }
-	
-  if(message.content === prefix + "serverinfo"){
-
-    message.delete(message.author)
-
-    let sicon = message.guild.iconURL;
-    let serveurembed = new Discord.RichEmbed()
-    .setDescription("_Information du serveur_")
-    .setColor("#15f153")
-    .setThumbnail(sicon)
-    .addField("Nom du serveur", message.guild.name)
-    .addField("Crée le", message.guild.createdAt)
-    .addField("Rejoins le", message.member.joinedAt)
-    .addField("Membres total", message.guild.memberCount)
-    .setFooter(`Demandé par @${message.author.username}`, message.author.displayAvatarURL)
-
-    message.channel.send(serveurembed);
-}
-	
-  if(message.content === prefix + "si"){
-
-    message.delete(message.author)
-
-    let sicon = message.guild.iconURL;
-    let serveurembed = new Discord.RichEmbed()
-    .setDescription("_Information du serveur_")
-    .setColor("#15f153")
-    .setThumbnail(sicon)
-    .addField("Nom du serveur", message.guild.name)
-    .addField("Crée le", message.guild.createdAt)
-    .addField("Rejoins le", message.member.joinedAt)
-    .addField("Membres total", message.guild.memberCount)
-    .setFooter(`Demandé par @${message.author.username}`, message.author.displayAvatarURL)
-
-    message.channel.send(serveurembed);
-}
     
     if (message.content === prefix + "info"){
 	var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
