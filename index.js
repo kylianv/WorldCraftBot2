@@ -63,18 +63,7 @@ bot.on('message', message => {
   if(message.content === `<@396452123002273792>`){
     message.reply("Mon préfix est ``wc!``. **wc!help** pour voir mes commandes")
   }
-	
-    if(!db.get("xp").find({user: msgauthor}).value()){
-        db.get("xp").push({user: msgauthor, xp: 1}).write();
-    }else{
-        var userxpdb = db.get("xp").filter({user: msgauthor}).find('xp').value();
-        console.log(userxpdb)
-        var userxp = Object.values(userxpdb)
-        console.log(userxp);
-        console.log(`Nombre d'xp : ${userxp[1]}`)
-
-        db.get("xp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write();
-} 	     
+ 	     
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
