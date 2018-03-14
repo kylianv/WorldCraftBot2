@@ -64,11 +64,6 @@ bot.on('message', message => {
     message.reply("Mon préfix est ``wc!``. **wc!help** pour voir mes commandes")
   }
 	
-	const command = args.shift().toLowerCase()
-	var msgauthor = message.author.id;
-	
-
-	
     if(!db.get("xp").find({user: msgauthor}).value()){
         db.get("xp").push({user: msgauthor, xp: 1}).write();
     }else{
