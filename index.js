@@ -59,11 +59,7 @@ message.channel.send('debug info :' + kickbot )}
 bot.on('message', message => {
 
 	if(message.author.bot)return;
-
-  if(message.content === `<@396452123002273792>`){
-    message.reply("Mon préfix est ``wc!``. **wc!help** pour voir mes commandes")
-  }
- 	     
+  
     if (message.content === prefix + "help"){
         var help_embed = new Discord.RichEmbed()
         .setColor('#12a0aa')
